@@ -1,0 +1,29 @@
+.Leaderboard {
+  padding-top:1.2rem;
+  text-align: left;
+  width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#Leaderboard-table td,
+#Leaderboard-table th
+{
+  border: 1px solid black;
+  padding: 10px;
+}
+
+#Leaderboard-table {
+  width: 400px;
+  border: 1px solid black;
+}
+
+#Leaderboard-table thead {
+  background: #399edb;
+  color: #fff;
+}
+
+#add-player-area input {
+  display: block;
+  padding: 10px;
+}
