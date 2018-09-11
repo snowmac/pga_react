@@ -3,7 +3,7 @@ import './Leaderboard.css';
 
 // Why isn't AddPlayer inside the Components in its own folder?
 // Well, it's a child of Leaderboard. Leader board is a higher order component
-// therefore it belongs here not in the super parent level.
+// therefore it belongs there not in the super parent level.
 import AddPlayer from './children/AddPlayer';
 
 // Why didn't you use Redux or XYZ Flux Pattern?!?!?!
@@ -30,7 +30,7 @@ class Leaderboard extends Component {
 
   sortPlayers(players) {
     // sort the players
-    // I was having trouble getting the sort to go write
+    // I was having trouble getting the sort to work correctly
     const set = players.sort((player1, player2) => {
         // sorting by score
         if (player1.score > player2.score) return 1;
@@ -41,7 +41,6 @@ class Leaderboard extends Component {
         if (player1.lastName < player2.lastName) return -1;
     });
 
-    // now store them
     this.setState({
       players: set
     })

@@ -10,7 +10,9 @@ describe('AddPlayer Tests', () => {
 
     expect(spy).not.toBeCalled();
 
-    form.find('input').simulate('change');
+    form.find('button').simulate('click', {
+      preventDefault(){}
+    })
 
     expect(spy).toBeCalled();
   });
