@@ -1,0 +1,11 @@
+#add-player-area {
+  width: 400px;
+  display: block;
+  margin-top: 30px;
+}
+
+#add-player-area input, #add-player-area button {
+  display: block;
+  padding: 10px;
+  margin: 10px;
+}

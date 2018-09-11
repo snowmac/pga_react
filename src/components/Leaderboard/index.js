@@ -1,18 +1,24 @@
 import React, { Component } from 'react';
 import './Leaderboard.css';
-import AddPlayer from './AddPlayer';
+
+// Why isn't AddPlayer inside the Components in its own folder?
+// Well, it's a child of Leaderboard. Leader board is a higher order component
+// therefore it belongs here not in the super parent level.
+import AddPlayer from './children/AddPlayer';
 
 // Why didn't you use Redux or XYZ Flux Pattern?!?!?!
 // Simplicity. If I were building an application with a bunch of pages
 // and navigation elements, sure I'd probably use a flux pattern because it makes
 // a lot of sense. Shared application state, especially as you grow and add things
-// like API calls.
+// like API calls. But this made more sense to build it like a HOC. The leaderboard
+// is the source of truth for all player leader info and
+// the add player component is specific to the player component form and controls all
+// state related to that thus fulfilling the single responsibility principle and resulting
+// in better code
 
 class Leaderboard extends Component {
   constructor(props) {
     super(props);
-
-    this.input = React.createRef();
 
     this.state = {
       players: []
@@ -23,9 +29,21 @@ class Leaderboard extends Component {
   }
 
   sortPlayers(players) {
-    // to do sort the players
+    // sort the players
+    // I was having trouble getting the sort to go write
+    const set = players.sort((player1, player2) => {
+        // sorting by score
+        if (player1.score > player2.score) return 1;
+        if (player1.score < player2.score) return -1;
+
+        // sorting by name
+        if (player1.lastName > player2.lastName) return 1;
+        if (player1.lastName < player2.lastName) return -1;
+    });
+
+    // now store them
     this.setState({
-      players
+      players: set
     })
   }
 
